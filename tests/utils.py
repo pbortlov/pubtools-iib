@@ -21,6 +21,7 @@ class FakeTaskManager(object):
         overwrite_from_index_token=None,
         state_seq=("in_progress", "finished"),
         op_type="add",
+        deprecation_list=None,
     ):
         tid = self._gen_task_id()
         self.task_state_seq[tid] = list(state_seq)
@@ -35,7 +36,9 @@ class FakeTaskManager(object):
             "binary_image": binary_image,
             "binary_image_resolved": binary_image + "-resolved",
             "bundle_mapping": {},
+            "deprecation_list": deprecation_list,
             "index_image": "feed.com/index/image:tag",
+            "index_image_resolved": "feed.com/index/image:tag",
             "arches": arches,
             "batch": 123,
             "updated": "2020-05-26T19:33:58.759687Z",

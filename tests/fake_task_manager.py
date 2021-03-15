@@ -31,6 +31,7 @@ class FakeTaskManager(object):
             "binary_image": binary_image,
             "binary_image_resolved": binary_image + "-resolved",
             "index_image": "index_image",
+            "index_image_resolved": "index_image_resolved",
             "arches": arches,
         }
         import sys
@@ -45,6 +46,7 @@ class FakeTaskManager(object):
         if op_type == "add":
             self.tasks[tid]["request_type"] = 1
             self.tasks[tid]["bundle_mapping"] = {"operator-1": map_or_op}
+            self.tasks[tid]["deprecation_list"] = ["bundle1"]
 
         return self.tasks[tid]
 

@@ -213,6 +213,7 @@ def add_bundles_mock_calls_tester(
         binary_image="binary-image",
         overwrite_from_index=True,
         overwrite_from_index_token="overwrite_from_index_token",
+        deprecation_list=["bundle1"],
     )
     fixture_iib_client.assert_called_once_with(
         "iib-server", auth=fixture_iib_krb_auth.return_value, ssl_verify=False
@@ -293,7 +294,7 @@ def remove_operators_mock_calls_tester(
     "extra_args,push_items,mock_calls_tester",
     [
         (
-            [],
+            ["--deprecation-list", ["bundle1"]],
             [operator_1_push_item_pending, operator_1_push_item_pushed],
             add_bundles_mock_calls_tester,
         ),
